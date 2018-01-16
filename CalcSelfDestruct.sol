@@ -4,7 +4,7 @@ contract Calculator {
  uint x = 2;
  uint z;
  uint y;
- address owner;
+ address owner  = msg.sender;
  
  
  
@@ -20,7 +20,6 @@ contract Calculator {
   }
   
    function kill() public {
-      owner = msg.sender;
       if (msg.sender == owner) 
       selfdestruct(owner); 
   }

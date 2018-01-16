@@ -1,20 +1,32 @@
 pragma solidity ^0.4.0;
 
-
-
 contract Calculator {
  uint x = 2;
  uint z;
- 
- 
- function setNum(uint d) public {
+ uint y;
+ address owner;
+    
+    function Calculator() {
+        owner = msg.sender;
+    }
+    
+    modifier onlyOwner {
+        require(owner == msg.sender);
+        _;
+    }
+   
+    function setNum(uint d, uint a)  onlyOwner {
+     a = y;
      z = d;
+     y = z * x;
  }
 
-  
-  function getNum(uint) public constant returns (uint){
-      uint y = z * x;
-       return y;
+  function getNum() constant onlyOwner  returns (uint){
+     return y;
   }
- 
+  
+   function kill(){
+      if (msg.sender == owner) 
+      selfdestruct(owner); 
+  }
 }

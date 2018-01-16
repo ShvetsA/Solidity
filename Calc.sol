@@ -26,7 +26,6 @@ contract Calculator {
   }
   
    function kill() onlyOwner{
-      if (msg.sender == owner) 
-      selfdestruct(owner); 
+     selfdestruct(owner); 
   }
 }

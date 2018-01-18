@@ -77,7 +77,7 @@ function showBalance() public onlyOwner constant returns(uint) {
     return this.balance;
 }
 
-function arase() onlyOwner {
+function arase() public onlyOwner {
       selfdestruct(owner); 
   }
 }
